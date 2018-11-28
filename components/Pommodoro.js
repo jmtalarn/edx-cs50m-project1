@@ -3,7 +3,8 @@ import React from 'react';
 import TimeDisplay from './TimeDisplay.js';
 import { View } from 'react-native';
 import { vibrate } from '../utils';
-
+import Pause from './Pause.js'
+import TimeSetter from './TimeSetter';
 import Styles from './Stylesheet'
 
 export default class Pommodoro extends React.Component {
@@ -59,6 +60,7 @@ export default class Pommodoro extends React.Component {
 	render() {
 		return (
 			<View style={Styles.container}>
+
 				<TimeDisplay time={this.state.time} />
 			</View>
 		);

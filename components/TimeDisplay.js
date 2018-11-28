@@ -7,9 +7,6 @@ export default class TimeDisplay extends React.Component {
 	static propTypes = {
 		time: PropTypes.number.isRequired
 	}
-	static defaultProps = {
-		time: 0
-	}
 	constructor(props) {
 		super(props);
 	}
