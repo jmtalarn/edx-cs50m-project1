@@ -4,13 +4,17 @@ import { Button } from 'react-native';
 
 export default class Pause extends React.Component {
 	static propTypes = {
-		togglePause: PropTypes.func.isRequired
+		togglePause: PropTypes.func.isRequired,
+		pause: PropTypes.bool.isRequired
 	}
 	constructor(props) {
 		super(props);
 	}
 
 	render() {
-		return <Button onPress={this.props.togglePause} title="PAUSE" />
+		return <Button
+			onPress={this.props.togglePause}
+			title={this.props.pause ? "RESUME" : "PAUSE"}
+		/>
 	}
 }

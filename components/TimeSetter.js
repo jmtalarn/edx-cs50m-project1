@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Text, View } from 'react-native';
 import TimeDisplay from './TimeDisplay.js';
+import Styles from './Stylesheet.js';
 
 export default class TimeSetter extends React.Component {
 	static propTypes = {
@@ -25,13 +26,19 @@ export default class TimeSetter extends React.Component {
 	}
 	render() {/*  */
 		return (
-			<View>
-				<Text>
+			<View style={Styles.column}>
+				<Text style={Styles.timeSetterTitle}>
 					{this.props.title}
 				</Text>
-				<TimeDisplay time={this.state.time} />
-				<Button onPress={this.add5Minuts} title="+" />
-				<Button onPress={this.minus1Minut} title="-" />
+				<View style={Styles.row}>
+					<TimeDisplay time={this.state.time} />
+					<View style={Styles.column}>
+						<Button onPress={this.add5Minuts} title="+" />
+						<Button onPress={this.minus1Minut} title="-" />
+					</View>
+				</View>
+
+
 			</View>
 		)
 	}

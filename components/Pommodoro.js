@@ -1,7 +1,7 @@
 
 import React from 'react';
 import TimeDisplay from './TimeDisplay.js';
-import { View, Button } from 'react-native';
+import { View, Button, Text } from 'react-native';
 import { vibrate } from '../utils';
 import Pause from './Pause.js'
 import TimeSetter from './TimeSetter';
@@ -55,16 +55,39 @@ export default class Pommodoro extends React.Component {
 		this.setState(newState);
 	}
 	resetPommodoro = () => {/*  */
-		this.setState = { ...this.state, time: this.state.work, pause: false, fase: "work" }
+		this.setState(
+			{
+				...this.state,
+				time: this.state.work,
+				pause: false,
+				fase: "work"
+			}
+		)
 	}
 	render() {
 		return (
-			<View style={Styles.container}>
-				<TimeSetter time={this.state.work} type="work" action={this.setTimeValue} title="Work" />
-				<TimeSetter time={this.state.rest} type="rest" action={this.setTimeValue} title="Rest" />
-				<Pause pause={this.state.pause} togglePause={this.togglePause} />
-				<Button onPress={this.resetPommodoro} title="RESET" />
-				<TimeDisplay time={this.state.time} />
+
+			<View style={[ Styles.container, Styles.spaced ]}>
+				<View style={[ Styles.column, Styles.flexOne ]}>
+					<Text style={Styles.appTitle}>
+						Pommodoro clock
+					</Text>
+
+					<View style={[ Styles.row ]}>
+						<TimeSetter time={this.state.work} type="work" action={this.setTimeValue} title="Work" />
+						<TimeSetter time={this.state.rest} type="rest" action={this.setTimeValue} title="Rest" />
+					</View>
+				</View>
+				<View style={[ Styles.column, Styles.flexTwo ]}>
+					<View style={[ Styles.row, Styles.spaced ]}>
+						<Pause pause={this.state.pause} togglePause={this.togglePause} />
+						<Button onPress={this.resetPommodoro} title="RESET" />
+					</View>
+					<TimeDisplay
+						style={Styles.flexEnd}
+						time={this.state.time}
+					/>
+				</View>
 			</View>
 		);
 	}
