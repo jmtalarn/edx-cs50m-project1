@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Text, View } from 'react-native';
+import TimeDisplay from './TimeDisplay.js';
 
 export default class TimeSetter extends React.Component {
 	static propTypes = {
@@ -29,8 +30,8 @@ export default class TimeSetter extends React.Component {
 					{this.props.title}
 				</Text>
 				<TimeDisplay time={this.state.time} />
-				<Button onPress={this.add5Minuts}>+</Button>
-				<Button onPress={this.minus1Minut}>-</Button>
+				<Button onPress={this.add5Minuts} title="+" />
+				<Button onPress={this.minus1Minut} title="-" />
 			</View>
 		)
 	}

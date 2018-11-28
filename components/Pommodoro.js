@@ -1,7 +1,7 @@
 
 import React from 'react';
 import TimeDisplay from './TimeDisplay.js';
-import { View } from 'react-native';
+import { View, Button } from 'react-native';
 import { vibrate } from '../utils';
 import Pause from './Pause.js'
 import TimeSetter from './TimeSetter';
@@ -60,7 +60,10 @@ export default class Pommodoro extends React.Component {
 	render() {
 		return (
 			<View style={Styles.container}>
-
+				<TimeSetter time={this.state.work} type="work" action={this.setTimeValue} title="Work" />
+				<TimeSetter time={this.state.rest} type="rest" action={this.setTimeValue} title="Rest" />
+				<Pause pause={this.state.pause} togglePause={this.togglePause} />
+				<Button onPress={this.resetPommodoro} title="RESET" />
 				<TimeDisplay time={this.state.time} />
 			</View>
 		);

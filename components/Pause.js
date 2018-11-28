@@ -11,6 +11,6 @@ export default class Pause extends React.Component {
 	}
 
 	render() {
-		<Button onPress={this.props.togglePause} value="PAUSE" />
+		return <Button onPress={this.props.togglePause} title="PAUSE" />
 	}
 }
